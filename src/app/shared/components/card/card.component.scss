@@ -1,0 +1,60 @@
+.card {
+  .card__perfil {
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    font-size: 14px;
+
+    .card__perfil__id {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    img {
+      width: 70%;
+      margin: 0 auto;
+      border-radius: 50%;
+    }
+
+    .card__perfil__name {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      justify-content: center;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .card__perfil__login {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+
+    .card__perfil__bio {
+      padding: 5px;
+      border-style: dotted;
+    }
+
+    .card__perfil__follow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .card__perfil {
+    width: 270px;
+    margin: 0 auto;
+  }
+}

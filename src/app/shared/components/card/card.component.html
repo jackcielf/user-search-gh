@@ -1,0 +1,27 @@
+<div class="card">
+  <div *ngIf="userdata">
+    <div *ngIf="userdata.login">
+      <div class="card__perfil">
+        <div class="card__perfil__id">
+          <span><strong>ID:</strong> {{ userdata.id }} </span>
+          <span>
+            <strong>REPOS:</strong>
+            {{ userdata.public_repos + userdata.public_gists }}
+          </span>
+        </div>
+        <img src="{{ userdata.avatar_url }}" />
+        <div class="card__perfil__name">
+          <p>{{ userdata.name }}</p>
+          <p class="card__perfil__login">{{ userdata.login }}</p>
+        </div>
+        <p class="card__perfil__bio">{{ userdata.bio }}</p>
+        <p><strong>Formação:</strong> {{ userdata.company }}</p>
+        <p><strong>Origem:</strong> {{ userdata.location }}</p>
+        <div class="card__perfil__follow">
+          <span>{{ userdata.followers }} followers</span> |
+          <span>{{ userdata.following }} following</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,24 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { UserData } from 'src/app/shared/interfaces/GitHubUser';
+import { GithubService } from 'src/app/shared/services/github.service';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
+  nickname = '';
+  errorMessage = '';
+  userdata: UserData;
 
-  nickname: string = '';
-  
-  constructor(private router: Router) { }
-  
+  constructor(private gitHubService: GithubService) {}
+
   ngOnInit() {}
 
-  onSubmit(): void {
+  serachNickname(): void {
     if (this.nickname) {
-      this.router.navigate(['/search/result', this.nickname]);
+      this.gitHubService.searchUser(this.nickname).subscribe(
+        (dataResponse: UserData) => {
+          console.log(dataResponse.id)
+          this.userdata = dataResponse;
+          this.errorMessage = '';
+        },
+        (errorResponse) => {
+          this.errorMessage = errorResponse.error.message === 'Not Found' ? "Não encontrado!" : '';
+        }
+      );
     } else {
-      alert("Pesquisa inválido!");
+      this.errorMessage = 'Digite o nickname';
     }
   }
 }

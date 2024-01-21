@@ -1,17 +1,31 @@
-<div class="search__container">
-  <div>
-    <h1>Procure seu perfil</h1>
-    <form autocomplete="off" class="form" (submit)="onSubmit()">
+<div class="search">
+  <div class="search__container">
+    <h1 class="search__title">Procure seu perfil</h1>
+    <form autocomplete="off" class="search__form" (submit)="serachNickname()">
       <input
         type="text"
+        class="search__form__input"
         placeholder="Username"
         name="nickname"
         [(ngModel)]="nickname"
         />
       <input
         type="submit"
+        class="search__form__button"
         value="Procurar"
       />
+
+      <div class="errorMessage" *ngIf="errorMessage">{{ errorMessage }}</div>
     </form>
   </div>
+
+  <div class="search__line"></div>
+  
+  <div *ngIf="nickname; else noSearch">
+    <app-card [userdata]="userdata"></app-card>
+  </div>
+  
+  <ng-template #noSearch>
+    <app-card-fake></app-card-fake>
+  </ng-template>
 </div>

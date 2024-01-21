@@ -1,19 +1,16 @@
-@import url("https://fonts.cdnfonts.com/css/mona-sans");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Mona-Sans", sans-serif;
-  transition: 0.3s ease-in-out;
+  font-family: "Poppins", sans-serif;
 }
 
-.card__container,
-.search__container {
+body {
   min-width: 100vw;
   min-height: 100vh;
   background: linear-gradient(0deg, rgb(13, 9, 75) -50%, #000);
   display: grid;
   place-items: center;
-  color: #e1e1e1;
 }
